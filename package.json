@@ -1,0 +1,41 @@
+{
+  "name": "@pinyin/outline",
+  "version": "0.0.1",
+  "description": "Hello GPU",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "rm -r dist && npx tsc",
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinyin/outline.git"
+  },
+  "keywords": [
+    "transform",
+    "CSS"
+  ],
+  "author": "Bo Bao <bob432091@gmail.com> (https://github.com/pinyin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinyin/outline/issues"
+  },
+  "homepage": "https://github.com/pinyin/outline#readme",
+  "dependencies": {
+    "@pinyin/maybe": "^0.0.5",
+    "@pinyin/types": "file:../types",
+    "@pinyin/dom": "file:../dom",
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.4",
+    "tspath": "^1.2.10",
+    "typescript": "^2.9.0-dev.20180501"
+  }
+}

@@ -11,5 +11,5 @@ export {isInViewport} from './src/isInViewport'
 export {isSimilarOutline} from './src/isSimilarOutline'
 export {Outline} from './src/Outline'
 export {Point} from './src/Point'
-export {Transform} from './src/Transform'
+export {Transform, toCSS, fromCSS} from './src/Transform'
 

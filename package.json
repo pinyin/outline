@@ -1,14 +1,14 @@
 {
   "name": "@pinyin/outline",
-  "version": "0.0.6",
-  "description": "Hello GPU",
+  "version": "0.0.7",
+  "description": "Transfroms",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "rm -rf dist && npx tsc && cp -r vendor dist",
+    "prepublishOnly": "npx jest && rm -rf dist && npx tsc && cp -r vendor dist",
     "test": "npx jest"
   },
   "repository": {
@@ -26,15 +26,15 @@
   },
   "homepage": "https://github.com/pinyin/outline#readme",
   "dependencies": {
-    "@pinyin/dom": "0.0.2",
-    "@pinyin/maybe": "^0.0.5",
-    "@pinyin/types": "^0.0.9",
+    "@pinyin/dom": "^0.0.2",
+    "@pinyin/maybe": "^0.0.7",
+    "@pinyin/types": "^0.0.13",
     "tslib": "^1.9.0"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
     "jest": "^22.4.3",
-    "ts-jest": "^22.4.5",
-    "typescript": "^2.9.0-dev.20180501"
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.8.3"
   }
 }

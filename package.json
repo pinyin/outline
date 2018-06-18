@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "vendor"
   ],
   "scripts": {
     "prepublishOnly": "npx jest && rm -rf dist && npx tsc && cp -r vendor dist",
@@ -36,5 +38,25 @@
     "jest": "^22.4.3",
     "ts-jest": "^22.4.6",
     "typescript": "^2.8.3"
+  },
+  "jest": {
+    "roots": [
+      "src",
+      "lib",
+      "vendor"
+    ],
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "verbose": true
   }
 }

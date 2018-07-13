@@ -1,5 +1,4 @@
 import {hasStyle} from '@pinyin/dom'
-import {Maybe} from '@pinyin/maybe'
 import {fromString} from '../vendor/transformation-matrix/fromString'
 import {identity} from '../vendor/transformation-matrix/identity'
 import {toString} from '../vendor/transformation-matrix/toString'
@@ -17,6 +16,6 @@ export function toCSS(transform: Transform): string {
     return toString(transform)
 }
 
-export function fromCSS(css: Maybe<string>): Transform {
+export function fromCSS(css: string | undefined | null): Transform {
     return hasStyle(css) ? fromString(css) : identity()
 }

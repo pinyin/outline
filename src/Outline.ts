@@ -1,6 +1,8 @@
+import {px} from '@pinyin/types'
+
 export type Outline = {
-    readonly x: number
-    readonly y: number
-    readonly width: number
-    readonly height: number
+    readonly x: px
+    readonly y: px
+    readonly width: px
+    readonly height: px
 }

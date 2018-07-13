@@ -9,18 +9,17 @@ export function intermediate(from: Outline, to: Outline): Transform {
     const sx = to.width / from.width
     const sy = to.height / from.height
 
-    // FIXME from.width === 0?
+    if (!Number.isFinite(sx) || !Number.isFinite(sy)) {
+        throw new Error(`${from} can not be transformed to ${to}`)
+    }
 
     const fromCenter = centerOf(from)
     const toCenter = centerOf(to)
 
-    const matrix: Transform = transform(
+    return transform(
         translate(toCenter.x - fromCenter.x, toCenter.y - fromCenter.y),
         scale(sx, sy)
     )
-    // console.log(intermediateTransform.name, 'from', from, 'to', to, 'matrix', matrix)
-
-    return matrix
 }
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@pinyin/outline",
-  "version": "0.0.8",
-  "description": "Transfroms",
+  "version": "0.0.9",
+  "description": "Transforms",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "prepublishOnly": "npx jest && rm -rf dist && npx tsc && cp -r vendor dist",
-    "test": "npx jest"
+    "test": "npx tsc && npx jest"
   },
   "repository": {
     "type": "git",
@@ -41,9 +41,7 @@
   },
   "jest": {
     "roots": [
-      "src",
-      "lib",
-      "vendor"
+      "src"
     ],
     "transform": {
       "^.+\\.(t|j)sx?$": "ts-jest"

@@ -24,7 +24,6 @@ describe(`${decompose.name}`, () => {
     const tx = getRandomIntInclusive(1, 100) / 10
     const ty = getRandomIntInclusive(1, 100) / 10
     const skx = getRandomIntInclusive(-10, 10) / 10
-    const sky = getRandomIntInclusive(-10, 10) / 10
 
     describe('should decompose single matrix', () => {
         test('should decompose rotate', () => {
@@ -39,20 +38,11 @@ describe(`${decompose.name}`, () => {
         })
 
         test('should decompose skew', () => {
-            // FIXME not sure why this won't pass
-            // expect(decompose(skew(skx, 0)))
-            //     .toEqual({
-            //         ...decomposedIdentity,
-            //         skew: {x: skx, y: 0}
-            //     })
-            // const sky = getRandomIntInclusive(-10, 10) / 10
-            // expect(decompose(skew(0, sky)))
-            //     .toEqual({
-            //         rotation: 0,
-            //         scale: { x: 1, y: 1 },
-            //         skew: { x: 0, y: sky },
-            //         translate: { x: 0, y: 0 }
-            //     })
+            expect(decompose(skew(skx, 0)))
+                .toEqual({
+                    ...decomposedIdentity,
+                    skew: {x: skx, y: 0},
+                })
         })
 
         test('should decompose translate', () => {

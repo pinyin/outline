@@ -5,27 +5,29 @@ import {Outline} from './Outline'
 import {Point} from './Point'
 import {Transform} from './Transform'
 
-export function applyTransform(from: Readonly<Outline>, matrix: Readonly<Transform>): Outline {
+export function applyTransform(from: Readonly<Outline>,
+                               matrix: Readonly<Transform>,
+                               origin?: Point): Outline {
     const {rotation, skew} = decompose(matrix)
     if (rotation !== 0 || skew.x !== 0) {
         throw new Error(`Doesn't support matrix ${matrix}`)
     }
 
-    const center = centerOf(from)
+    origin = origin || centerOf(from)
 
-    const fromTopLeft: Point = {x: from.x - center.x, y: from.y - center.y}
+    const fromTopLeft: Point = {x: from.x - origin.x, y: from.y - origin.y}
     const toTopLeft = applyToPoint(matrix, fromTopLeft)
 
     const fromBottomRight: Point =
-        {x: from.x + from.width - center.x, y: from.y + from.height - center.y}
+        {x: from.x + from.width - origin.x, y: from.y + from.height - origin.y}
     const toBottomRight = applyToPoint(matrix, fromBottomRight)
 
     const toWidth = toBottomRight.x - toTopLeft.x
     const toHeight = toBottomRight.y - toTopLeft.y
 
     return {
-        x: toTopLeft.x + center.x,
-        y: toTopLeft.y + center.y,
+        x: toTopLeft.x + origin.x,
+        y: toTopLeft.y + origin.y,
         width: toWidth,
         height: toHeight
     }

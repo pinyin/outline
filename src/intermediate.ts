@@ -10,7 +10,7 @@ export function intermediate(from: Outline, to: Outline): Transform {
     const sy = to.height / from.height
 
     if (!Number.isFinite(sx) || !Number.isFinite(sy)) {
-        throw new Error(`${from} can not be transformed to ${to}`)
+        throw new Error(`intermediate(${JSON.stringify(from)}, ${JSON.stringify(to)})): cannot find a multiplier.`)
     }
 
     const fromCenter = centerOf(from)

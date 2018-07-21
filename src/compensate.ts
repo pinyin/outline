@@ -1,3 +1,4 @@
+import {identity} from '../vendor/transformation-matrix/identity'
 import {scale} from '../vendor/transformation-matrix/scale'
 import {transform} from '../vendor/transformation-matrix/transform'
 import {translate} from '../vendor/transformation-matrix/translate'
@@ -10,7 +11,7 @@ import {Transform} from './Transform'
  * Transform parent while keeping child's visual position
  * @returns a transform to apply to child
  */
-export function compensate(parent: Outline, parentDiff: Transform, child: Outline): Transform {
+export function compensate(parent: Outline, parentDiff: Transform, child: Outline, childDiff: Transform = identity()): Transform {
     const outer = decompose(parentDiff)
 
     const deltaX = centerOf(child).x - centerOf(parent).x
@@ -26,5 +27,6 @@ export function compensate(parent: Outline, parentDiff: Transform, child: Outlin
             -outer.translate.x,
             -outer.translate.y,
         ),
+        childDiff,
     )
 }

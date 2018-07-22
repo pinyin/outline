@@ -1,6 +1,6 @@
 {
   "name": "@pinyin/outline",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Transforms",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
